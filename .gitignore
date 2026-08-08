@@ -1,0 +1,6 @@
+.env
+.env
+.vite
+.vercel
+.env*
+node_modules

@@ -1,0 +1,74 @@
+.services-section {
+  position: relative;
+  z-index: 5;
+  background-color: var(--color-obsidian);
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-icon-wrapper {
+  color: var(--color-neon-green);
+  margin-bottom: 1.5rem;
+  background: var(--color-neon-green-dim);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.service-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+
+.service-text {
+  color: var(--color-text-secondary);
+  flex-grow: 1;
+}
+
+.service-hover-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--color-neon-green);
+  transition: width 0.4s ease;
+}
+
+.service-card:hover .service-hover-line {
+  width: 100%;
+}
