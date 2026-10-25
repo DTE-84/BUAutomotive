@@ -1,6 +1,7 @@
 import React from 'react';
 import './About.css';
 import { Flag, Handshake, MapPin, Wrench } from 'lucide-react';
+import LogoMark from './LogoMark.jsx';
 import { site } from '../siteConfig.js';
 
 const About = () => {
@@ -10,9 +11,7 @@ const About = () => {
         <div className="about-visual reveal">
           {/* To use a real photo of Bobby or the shop, replace this div with an <img className="about-photo" /> */}
           <div className="about-photo-placeholder" aria-hidden="true">
-            <svg viewBox="0 0 64 64" className="about-photo-mark">
-              <path d="M14 12h10v26a8 8 0 0 0 16 0V12h10v26a18 18 0 0 1-36 0z" fill="currentColor" />
-            </svg>
+            <LogoMark className="about-photo-mark" outline="#1a1a1a" />
           </div>
           <div className="about-nameplate">
             <span className="about-nameplate-name">{site.owner}</span>

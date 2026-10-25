@@ -5,8 +5,8 @@
 }
 
 .logo-mark {
-  width: 42px;
-  height: 42px;
+  width: 48px;
+  height: 48px;
   flex-shrink: 0;
 }
 
@@ -35,8 +35,8 @@
 }
 
 .logo-lg .logo-mark {
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
 }
 
 .logo-lg .logo-name {
