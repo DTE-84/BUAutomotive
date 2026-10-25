@@ -1,56 +1,38 @@
 import React from 'react';
 import './Footer.css';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Facebook, MapPin, Phone } from 'lucide-react';
+import Logo from './Logo.jsx';
+import { site, fullAddress, mapsLink, phoneHref } from '../siteConfig.js';
 
 const Footer = () => {
   return (
     <footer className="footer-section">
-      <div className="section-container footer-grid">
+      <div className="checker-strip" aria-hidden="true"></div>
+      <div className="footer-inner">
         <div className="footer-brand">
-          <h3 className="footer-logo">UPPINGHOUSE <span className="text-green">PERFORMANCE</span></h3>
-          <p className="footer-tagline">
-            High-fidelity mechanics and precision engineering for every machine on the road.
-          </p>
+          <Logo size="lg" />
+          <p className="footer-motto">{site.motto}.</p>
         </div>
-        
+
+        <nav className="footer-nav" aria-label="Footer">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#why-us">Why Us</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
         <div className="footer-contact">
-          <h4 className="footer-heading">Contact & Booking</h4>
-          <ul className="contact-list">
-            <li>
-              <Phone size={18} className="text-green" />
-              <span>(555) 019-8274</span> {/* Filler data */}
-            </li>
-            <li>
-              <Mail size={18} className="text-green" />
-              <span>service@uppinghouse.repair</span> {/* Filler data */}
-            </li>
-            <li>
-              <MapPin size={18} className="text-green" />
-              <span>100 Main St, Plainville</span> {/* Filler data */}
-            </li>
-          </ul>
-        </div>
-        
-        <div className="footer-hours">
-          <h4 className="footer-heading">Operating Hours</h4>
-          <ul className="hours-list">
-            <li>
-              <Clock size={18} className="text-green" />
-              <span>Mon - Fri: 8:00 AM - 6:00 PM</span>
-            </li>
-            <li className="hours-note">Weekend service available by appointment for performance and commercial clients.</li>
-          </ul>
+          <a href={phoneHref}><Phone size={18} /> {site.phone}</a>
+          <a href={mapsLink} target="_blank" rel="noreferrer"><MapPin size={18} /> {fullAddress}</a>
+          {site.facebook && (
+            <a href={site.facebook} target="_blank" rel="noreferrer"><Facebook size={18} /> Facebook</a>
+          )}
         </div>
       </div>
-      
+
       <div className="footer-bottom">
-        <div className="section-container footer-bottom-flex">
-          <p>&copy; {new Date().getFullYear()} Uppinghouse Performance & Repair. All rights reserved.</p>
-          <div className="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-          </div>
-        </div>
+        <p>&copy; {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+        <p>Proudly serving Plainville &amp; Adams County, Illinois.</p>
       </div>
     </footer>
   );

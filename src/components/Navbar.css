@@ -1,0 +1,129 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: var(--nav-height);
+  transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.navbar-solid {
+  background-color: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom-color: var(--color-line);
+}
+
+.navbar-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.navbar-brand {
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.navbar-links a:not(.btn) {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-white);
+  padding: 0.25rem 0;
+}
+
+.navbar-links a:not(.btn)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width 0.25s ease;
+}
+
+.navbar-links a:not(.btn):hover::after {
+  width: 100%;
+}
+
+.navbar-call {
+  padding: 0.7rem 1.25rem;
+  font-size: 0.95rem;
+}
+
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+@media (max-width: 900px) {
+  .navbar-toggle {
+    display: inline-flex;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    /* explicit height: the header's backdrop-filter makes it the containing block */
+    height: calc(100vh - var(--nav-height));
+    height: calc(100dvh - var(--nav-height));
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 1.5rem 1rem 2rem;
+    background: var(--color-black);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .navbar-links.is-open {
+    transform: none;
+  }
+
+  .navbar-links a:not(.btn) {
+    font-size: 1.6rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .navbar-links a:not(.btn)::after {
+    display: none;
+  }
+
+  .navbar-call {
+    margin-top: 2rem;
+    padding: 1.1rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar-inner .logo-sub {
+    display: none;
+  }
+}

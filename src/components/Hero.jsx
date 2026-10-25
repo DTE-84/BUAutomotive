@@ -1,32 +1,63 @@
 import React from 'react';
 import './Hero.css';
-import { ArrowRight, Wrench } from 'lucide-react';
+import { ArrowRight, Clock, MapPin, Phone } from 'lucide-react';
+import Tachometer from './Tachometer.jsx';
+import { site, mapsLink, phoneHref } from '../siteConfig.js';
 
 const Hero = () => {
   return (
-    <section className="hero-section">
-      <div className="hero-overlay"></div>
-      <div className="hero-content">
-        <div className="badge">
-          <Wrench size={16} className="text-green" />
-          <span>Precision. Performance. Power.</span>
+    <section className="hero-section" id="top">
+      <div className="hero-stripes" aria-hidden="true"></div>
+
+      <div className="hero-inner">
+        <div className="hero-content">
+          <p className="eyebrow">Plainville, Illinois</p>
+          <h1 className="hero-title">
+            Little Town Feel,
+            <span className="hero-title-accent">Big Time Service.</span>
+          </h1>
+          <p className="hero-subtitle">
+            Honest repairs, sharp diagnostics and real performance know-how from {site.owner}
+            {' '}— the mechanic Plainville has trusted for years. Daily drivers, farm trucks,
+            diesels and race builds, all handled right the first time.
+          </p>
+          <div className="hero-actions">
+            <a href="#contact" className="btn btn-primary">
+              Schedule Service <ArrowRight size={20} />
+            </a>
+            <a href={phoneHref} className="btn btn-outline">
+              <Phone size={18} /> Call the Shop
+            </a>
+          </div>
         </div>
-        <h1 className="hero-title">
-          Elite Mechanics For <br />
-          <span className="text-gradient">Every Machine</span>
-        </h1>
-        <p className="hero-subtitle">
-          From high-performance racecars and heavy-duty semi-trucks to your daily driver. 
-          State-of-the-art diagnostics and uncompromising quality in Plainville.
-        </p>
-        <div className="hero-actions">
-          <button className="btn-primary">
-            Request Consultation <ArrowRight size={20} />
-          </button>
-          <button className="btn-secondary">
-            View Our Services
-          </button>
+
+        <div className="hero-gauge">
+          <Tachometer />
         </div>
+      </div>
+
+      <div className="hero-infobar">
+        <a href={mapsLink} target="_blank" rel="noreferrer" className="hero-info">
+          <MapPin size={22} />
+          <span>
+            <strong>Find Us</strong>
+            {site.address.street} {site.address.city}, {site.address.state}
+          </span>
+        </a>
+        <div className="hero-info">
+          <Clock size={22} />
+          <span>
+            <strong>Shop Hours</strong>
+            {site.hours[0].days.replace(' – ', '–')}: {site.hours[0].time}
+          </span>
+        </div>
+        <a href={phoneHref} className="hero-info">
+          <Phone size={22} />
+          <span>
+            <strong>Call Today</strong>
+            {site.phone}
+          </span>
+        </a>
       </div>
     </section>
   );

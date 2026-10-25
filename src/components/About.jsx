@@ -1,53 +1,72 @@
 import React from 'react';
 import './About.css';
-import { MapPin, ShieldCheck, Zap } from 'lucide-react';
+import { Flag, Handshake, MapPin, Wrench } from 'lucide-react';
+import { site } from '../siteConfig.js';
 
 const About = () => {
   return (
-    <section className="about-section section-container" id="about">
-      <div className="about-grid">
-        <div className="about-image-wrapper">
-          <div className="about-image-card">
-            {/* The user will drop the performance_vehicle generated image here */}
-            <div className="image-placeholder">
-               <div className="overlay-glitch"></div>
-            </div>
-            <div className="experience-badge">
-              <span className="years">20+</span>
-              <span className="label">Years of Mastery</span>
-            </div>
+    <section className="about-section" id="about">
+      <div className="section-container about-grid">
+        <div className="about-visual reveal">
+          {/* To use a real photo of Bobby or the shop, replace this div with an <img className="about-photo" /> */}
+          <div className="about-photo-placeholder" aria-hidden="true">
+            <svg viewBox="0 0 64 64" className="about-photo-mark">
+              <path d="M14 12h10v26a8 8 0 0 0 16 0V12h10v26a18 18 0 0 1-36 0z" fill="currentColor" />
+            </svg>
+          </div>
+          <div className="about-nameplate">
+            <span className="about-nameplate-name">{site.owner}</span>
+            <span className="about-nameplate-role">Owner &amp; Lead Mechanic</span>
+          </div>
+          <div className="about-badge">
+            <span className="about-badge-years">{site.yearsExperience}</span>
+            <span className="about-badge-label">Years Turning Wrenches</span>
           </div>
         </div>
-        
-        <div className="about-content">
-          <h2 className="section-title">The <span className="text-gradient">Two-Lift</span> Advantage</h2>
-          <p className="about-description">
-            Located in the heart of Plainville, our shop operates on a philosophy of high-fidelity mechanics. We don't just swap parts; we diagnose, engineer, and optimize.
+
+        <div className="about-content reveal">
+          <p className="eyebrow">Meet the Shop</p>
+          <h2 className="section-title">
+            Hometown Mechanic. <span className="text-accent">Race-Shop Skills.</span>
+          </h2>
+          <p className="about-text">
+            {site.owner} has been the guy folks around Plainville call when something just isn&apos;t
+            right. No fancy waiting room, no upsell script — just straight answers, fair prices and
+            work he&apos;d put his own name on. Because he does.
           </p>
-          <p className="about-description">
-            With two dedicated state-of-the-art lifts, we maintain a hyper-focused environment. This means your vehicle—whether a precision racecar or a heavy-duty semi—gets undivided attention and expert craftsmanship.
+          <p className="about-text">
+            Uppinghouse Performance &amp; Auto Repair is a family shop. With Bobby&apos;s daughter trained
+            at NASCAR mechanic school, the same precision that goes into a race car now goes into
+            every vehicle that rolls through our doors on Main Street.
           </p>
-          
-          <ul className="about-features">
+
+          <ul className="about-points">
             <li>
-              <div className="feature-icon"><MapPin size={24} /></div>
-              <div className="feature-text">
-                <h4>Plainville Base</h4>
-                <p>Local roots, world-class execution.</p>
+              <span className="about-point-icon"><Handshake size={22} /></span>
+              <div>
+                <h3>Family Owned &amp; Operated</h3>
+                <p>You talk to the people actually working on your vehicle.</p>
               </div>
             </li>
             <li>
-              <div className="feature-icon"><Zap size={24} /></div>
-              <div className="feature-text">
-                <h4>High-Fidelity Diagnostics</h4>
-                <p>Data integrity meets mechanical expertise.</p>
+              <span className="about-point-icon"><Flag size={22} /></span>
+              <div>
+                <h3>NASCAR-Trained Next Generation</h3>
+                <p>Race-shop discipline and modern technical training.</p>
               </div>
             </li>
             <li>
-              <div className="feature-icon"><ShieldCheck size={24} /></div>
-              <div className="feature-text">
-                <h4>Uncompromising Quality</h4>
-                <p>Built on trust, verified by performance.</p>
+              <span className="about-point-icon"><MapPin size={22} /></span>
+              <div>
+                <h3>Right Here on Main Street</h3>
+                <p>Local roots, local neighbors, local accountability.</p>
+              </div>
+            </li>
+            <li>
+              <span className="about-point-icon"><Wrench size={22} /></span>
+              <div>
+                <h3>Done Right the First Time</h3>
+                <p>We diagnose before we replace, and we stand behind our work.</p>
               </div>
             </li>
           </ul>

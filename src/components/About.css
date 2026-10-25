@@ -1,117 +1,207 @@
 .about-section {
-  position: relative;
-  background-color: var(--color-charcoal);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  background: var(--color-ink);
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
 }
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 5rem;
   align-items: center;
 }
 
-@media (max-width: 968px) {
+@media (max-width: 960px) {
   .about-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+.about-visual {
+  position: relative;
+  margin-right: 2rem;
+}
+
+@media (max-width: 640px) {
+  .about-visual {
+    margin-right: 0.75rem;
+  }
+
+  .about-visual::before {
+    top: 0.75rem;
+    left: 0.75rem;
+    right: -0.75rem;
+    bottom: -0.75rem;
+  }
+}
+
+.about-photo,
+.about-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid var(--color-line);
+}
+
+/* Garage-door slats with the logo mark until a real photo is added */
+.about-photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    repeating-linear-gradient(180deg, #1c1c1c 0 38px, #141414 38px 42px),
+    var(--color-ink-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-photo-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(255, 77, 26, 0.2) 0%, transparent 60%);
+}
+
+.about-photo-mark {
+  width: 40%;
+  color: var(--color-accent);
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.6));
+}
+
+/* Accent frame offset behind the photo */
+.about-visual::before {
+  content: '';
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  right: -1.5rem;
+  bottom: -1.5rem;
+  border: 3px solid var(--color-accent);
+  z-index: -1;
+}
+
+.about-visual {
+  isolation: isolate;
+}
+
+.about-nameplate {
+  position: absolute;
+  left: 0;
+  bottom: 2rem;
+  background: var(--color-white);
+  color: var(--color-black);
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.about-nameplate-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.about-nameplate-role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-deep);
+}
+
+.about-badge {
+  position: absolute;
+  top: 2rem;
+  right: -1.5rem;
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+}
+
+@media (max-width: 640px) {
+  .about-badge {
+    right: 0.75rem;
+    top: 0.75rem;
+    width: 108px;
+    height: 108px;
+  }
+}
+
+.about-badge-years {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 1;
+}
+
+.about-badge-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+  line-height: 1.2;
+}
+
+.about-text {
+  color: #cfcfcf;
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.about-points {
+  list-style: none;
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem 2rem;
+}
+
+@media (max-width: 640px) {
+  .about-points {
     grid-template-columns: 1fr;
   }
 }
 
-.about-image-wrapper {
-  position: relative;
-}
-
-.about-image-card {
-  position: relative;
-  border-radius: 1rem;
-  overflow: hidden;
-  aspect-ratio: 4/5;
-  background: var(--color-slate);
-  border: 1px solid var(--color-border);
-}
-
-/* Placeholder for the image. Will be replaced when user adds image to assets */
-.image-placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-obsidian) 100%);
-  position: relative;
-}
-
-.overlay-glitch {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%221%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.08%22/%3E%3C/svg%3E');
-}
-
-.experience-badge {
-  position: absolute;
-  bottom: 2rem;
-  right: -2rem;
-  background: var(--color-obsidian);
-  border: 1px solid var(--color-neon-green);
-  padding: 1.5rem;
-  border-radius: 0.5rem;
+.about-points li {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-  transform: translateX(-2rem);
-}
-
-.experience-badge .years {
-  font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--color-neon-green);
-  line-height: 1;
-}
-
-.experience-badge .label {
-  font-size: 0.875rem;
-  color: var(--color-text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-top: 0.5rem;
-}
-
-.about-description {
-  font-size: 1.1rem;
-  color: var(--color-text-secondary);
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
-}
-
-.about-features {
-  list-style: none;
-  margin-top: 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.about-features li {
-  display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: flex-start;
 }
 
-.feature-icon {
-  color: var(--color-neon-green);
-  background: var(--color-neon-green-dim);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+.about-point-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  border: 1px solid rgba(255, 77, 26, 0.35);
+  background: var(--color-accent-dim);
 }
 
-.feature-text h4 {
-  font-size: 1.2rem;
-  color: var(--color-text-primary);
+.about-points h3 {
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
   margin-bottom: 0.25rem;
 }
 
-.feature-text p {
-  color: var(--color-text-secondary);
+.about-points p {
+  color: var(--color-muted);
   font-size: 0.95rem;
+  line-height: 1.5;
 }

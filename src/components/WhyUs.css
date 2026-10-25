@@ -1,0 +1,94 @@
+.why-section {
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+.why-header {
+  max-width: 760px;
+  margin-bottom: 3.5rem;
+}
+
+.why-header .eyebrow {
+  color: var(--color-accent-deep);
+}
+
+.why-header .eyebrow::before {
+  background: var(--color-accent-deep);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 960px) {
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.why-card {
+  border-top: 4px solid var(--color-black);
+  padding-top: 1.75rem;
+  transition: border-color 0.25s ease;
+}
+
+.why-card:hover {
+  border-top-color: var(--color-accent);
+}
+
+.why-icon {
+  color: var(--color-accent-deep);
+  margin-bottom: 1rem;
+}
+
+.why-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.why-card p {
+  color: #4a4a4a;
+}
+
+/* Motto banner */
+.motto-band {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.motto-quote {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+
+.motto-quote p {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(2.25rem, 6.5vw, 5rem);
+  line-height: 1.05;
+}
+
+.motto-quote .text-accent {
+  white-space: nowrap;
+}
+
+.motto-quote cite {
+  display: block;
+  margin-top: 1.5rem;
+  font-style: normal;
+  font-family: var(--font-display);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
