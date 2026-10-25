@@ -15,10 +15,10 @@ export const site = {
   email: 'service@uppinghouseauto.com', // TODO: real shop email
   facebook: '', // TODO: Facebook page URL (leave empty to hide the link)
   yearsExperience: '20+', // TODO: confirm with Bobby
+  hoursSummary: 'Evenings & Weekends',
   hours: [
-    { days: 'Monday – Friday', time: '8:00 AM – 5:30 PM' }, // TODO: confirm hours
-    { days: 'Saturday', time: 'By Appointment' },
-    { days: 'Sunday', time: 'Closed' },
+    { days: 'Monday – Friday', time: 'Evenings, Call to Schedule' },
+    { days: 'Saturday & Sunday', time: 'Open, Call Ahead' },
   ],
 };
 

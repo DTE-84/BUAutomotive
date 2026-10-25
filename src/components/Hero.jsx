@@ -48,7 +48,7 @@ const Hero = () => {
           <Clock size={22} />
           <span>
             <strong>Shop Hours</strong>
-            {site.hours[0].days.replace(' – ', '–')}: {site.hours[0].time}
+            {site.hoursSummary}
           </span>
         </div>
         <a href={phoneHref} className="hero-info">
